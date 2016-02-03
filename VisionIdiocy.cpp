@@ -27,12 +27,13 @@ int main(int argc,char* argv[]){
 		else
 			threshold(src,src,10,255,THRESH_BINARY);//Its magic, you know
 		inRange(src, Scalar(0,0,0), Scalar(255,0,255), dst);
-		findContours( dst, contours, hierarchy,CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE );
+		/*findContours( dst, contours, hierarchy,CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE );
 		for(int x=0;x<contours.size();x++){
 			for(int y=0;y<contours[x].size();y++){
 							
 			}	
-		}
+		}*/
+		bitwise_not(dst,dst);
 		imshow("Vidia",dst);	
 		imshow("nVidia",src);
 	}
