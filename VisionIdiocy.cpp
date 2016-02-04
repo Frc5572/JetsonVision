@@ -9,6 +9,7 @@
 #include <unistd.h>
 #include <ctype.h>
 #include <string.h>
+#include <cmath>
 using namespace std;
 using namespace cv;
 CvCapture* cap=cvCaptureFromCAM(CV_CAP_ANY);
@@ -28,16 +29,16 @@ int main(int argc,char* argv[]){
 		else
 			threshold(src,src,10,255,THRESH_BINARY);//Its magic, you know
 		inRange(src, Scalar(0,0,0), Scalar(255,0,255), dst);
-		
 		bitwise_not(dst,dst);
-		
-Point w,br(0,255),tr(0,0),bl(255,255),tl(255,0);
+		double tlM=255,trM=255,blM=255,brM=255;
+		Point w,br(0,255),tr(0,0),bl(255,255),tl(255,0);
 		findContours( dst, contours, hierarchy,CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE );
 		for(int x=0;x<contours.size();x++){
 			for(int y=0;y<contours[x].size();y++){
 				w=contours[x][y];
-				if((w.x>br.x)&&((w.y+off)>=br.y))
-					br=w;	
+				int magnitude;
+				double ctlM=sqrt(pow((tl.x-w.x),2)+pow(tl.y-w.y)),ctrM=sqrt(pow((tr.x-w.x),2)+pow(tr.y-w.y)),cblM=sqrt(pow((bl.x-w.x),2)+pow(bl.y-w.y)),cbrM=sqrt(pow((br.x-w.x),2)+pow(br.y-w.y));
+				//distance bettwen two points = sqrt(pow(x1-x2,2)+pow(y2-y1,2))
 				
 			}	
 		}
