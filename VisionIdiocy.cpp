@@ -93,7 +93,8 @@ int main(int argc,char* argv[]){
 		circle(src,xtr,5,Scalar(0,255,0),5);
 		circle(src,xtl,5,Scalar(0,0,255),5);
 		circle(src,xbr,5,Scalar(255,255,255),5);
-
+		int widthb=xbr.x-xbl.x;
+		int widthb=xtr.x-xtl.x;
 		int m = waitKey(10);
 		if(m == 32){
 			avg += (xbr.x - xbl.x) < 0 ? -(xbr.x - xbl.x) : (xbr.x - xbl.x);
