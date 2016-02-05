@@ -8,8 +8,8 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <unistd.h>
 #include <ctype.h>
+#include <math.h>
 #include <string.h>
-#include <cmath>
 using namespace std;
 using namespace cv;
 CvCapture* cap=cvCaptureFromCAM(CV_CAP_ANY);
@@ -18,10 +18,27 @@ vector<vector<Point> > contours;
 bool epilepse=false;
 vector<Vec4i> hierarchy;
 int off=0;
+
+void smooth(Mat* s, int size){
+  Mat element = getStructuringElement( MORPH_RECT,
+                                       Size( 2*size + 1, 2*size+1 ),
+                                       Point( size, size ) );
+  erode( *s, *s, element );
+  
+  dilate(*s, *s, element );
+}
+
+RNG rng(256);
+
 int main(int argc,char* argv[]){		
 	namedWindow("Vidia");
 	namedWindow("nVidia");
-	while(waitKey(10) < 1){
+	double avg = 0;
+	double amnt = 0;
+	Mat element = getStructuringElement( MORPH_RECT,
+                                       Size( 7, 7 ),
+                                       Point( 3, 3 ) );
+	while(true){
 		IplImage* img=cvQueryFrame(cap);
 		src=cvarrToMat(img);
 		if(epilepse)
@@ -30,19 +47,62 @@ int main(int argc,char* argv[]){
 			threshold(src,src,10,255,THRESH_BINARY);//Its magic, you know
 		inRange(src, Scalar(0,0,0), Scalar(255,0,255), dst);
 		bitwise_not(dst,dst);
-		double tlM=255,trM=255,blM=255,brM=255;
-		Point w,br(0,255),tr(0,0),bl(255,255),tl(255,0);
-		findContours( dst, contours, hierarchy,CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE );
+		smooth(&dst, 5);
+		int width = src.size().width;
+		int height = src.size().height;
+		int widt=width*width+height*height;
+		double tlM=widt,trM=widt,blM=widt,brM=widt;                                                            
+		Point w,br(width, height),tr(width,0),bl(0, height),tl(0,0);         
+		Point xbr(width, height),xtr(width,0),xbl(0, height),xtl(0,0);
+		dilate(dst,dst,element);
+		findContours( dst, contours, hierarchy,CV_RETR_LIST, CV_CHAIN_APPROX_SIMPLE );
+		circle(src,bl,5,Scalar(255,0,0),5);
+		circle(src,tr,5,Scalar(0,255,0),5);
+		circle(src,tl,5,Scalar(0,0,255),5);
+		circle(src,br,5,Scalar(255,255,255),5);
+		dst = Mat::zeros( dst.size(), CV_8UC3 );
+		//*
 		for(int x=0;x<contours.size();x++){
+			Scalar color = Scalar( rng.uniform(0, 255), rng.uniform(0,255), rng.uniform(0,255) );
+       			drawContours( dst, contours, x, color, 2, 8, hierarchy, 0, Point() );
 			for(int y=0;y<contours[x].size();y++){
 				w=contours[x][y];
+				circle(dst,w,2,Scalar(128,128,128),2);
 				int magnitude;
-				double ctlM=sqrt(pow((tl.x-w.x),2)+pow(tl.y-w.y)),ctrM=sqrt(pow((tr.x-w.x),2)+pow(tr.y-w.y)),cblM=sqrt(pow((bl.x-w.x),2)+pow(bl.y-w.y)),cbrM=sqrt(pow((br.x-w.x),2)+pow(br.y-w.y));
+				double ctlM=(pow(w.x-tl.x,2)+pow(w.y-tl.y,2));
+				double ctrM=(pow(w.x-tr.x,2)+pow(w.y-tr.y,2));
+				double cbrM=(pow(w.x-br.x,2)+pow(w.y-br.y,2));
+				double cblM=(pow(w.x-bl.x,2)+pow(w.y-bl.y,2));
 				//distance bettwen two points = sqrt(pow(x1-x2,2)+pow(y2-y1,2))
-				
+				if(ctlM<tlM){
+					tlM=ctlM;
+					xtl=w;
+				}if(ctrM<trM){
+					trM=ctrM;
+					xtr=w;
+				}if(cblM<blM){
+					blM=cblM;
+					xbl=w;
+				}if(cbrM<brM){
+					brM=cbrM;
+					xbr=w;
+				}
 			}	
+		}//*/
+		circle(src,xbl,5,Scalar(255,0,0),5);
+		circle(src,xtr,5,Scalar(0,255,0),5);
+		circle(src,xtl,5,Scalar(0,0,255),5);
+		circle(src,xbr,5,Scalar(255,255,255),5);
+
+		int m = waitKey(10);
+		if(m == 32){
+			avg += (xbr.x - xbl.x) < 0 ? -(xbr.x - xbl.x) : (xbr.x - xbl.x);
+			amnt++;
+		}else if(m != -1){
+			break;
 		}
-		circle(src,br,5,Scalar(0,0,255),5);
+		double fina = avg / amnt;
+		std::cout << fina << std::endl;
 		imshow("Vidia",dst);	
 		imshow("nVidia",src);
 	}
