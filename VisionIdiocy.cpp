@@ -9,13 +9,13 @@
 #include <unistd.h>
 #include <ctype.h>
 #include <math.h>
+#include <vector>
 #include <string.h>
-#define ALLOW_OFF
+#define ALLOW_OFF 25
 using namespace std;
 using namespace cv;
 CvCapture* cap=cvCaptureFromCAM(CV_CAP_ANY);
 Mat src,dst;
-Point ignore[5];
 int it=0;
 vector<vector<Point> > contours;
 bool epilepse=false;
@@ -24,12 +24,11 @@ int off=0;
 //Scalar(BLUE,GRREEN,RED)
 int offsret=ALLOW_OFF;
 void smooth(Mat* s, int size){
-  Mat element = getStructuringElement( MORPH_RECT,
+	Mat element = getStructuringElement( MORPH_RECT,
                                        Size( 2*size + 1, 2*size+1 ),
                                        Point( size, size ) );
-  erode( *s, *s, element );
-  
-  dilate(*s, *s, element );
+	erode( *s, *s, element );
+	dilate(*s, *s, element );
 }
 
 RNG rng(256);
@@ -42,7 +41,8 @@ int main(int argc,char* argv[]){
 	Mat element = getStructuringElement( MORPH_RECT,
                                        Size( 7, 7 ),
                                        Point( 3, 3 ) );
-	
+	int itl,itr,ibl,ibr;
+	int ixtl,ixtr,ixbl,ixbr;
 	while(true){
 		IplImage* img=cvQueryFrame(cap);
 		src=cvarrToMat(img);
@@ -71,16 +71,9 @@ int main(int argc,char* argv[]){
 		for(int x=0;x<contours.size();x++){
 			Scalar color = Scalar( rng.uniform(0, 255), rng.uniform(0,255), rng.uniform(0,255) );
        			drawContours( dst, contours, x, color, 2, 8, hierarchy, 0, Point() );
+			Point lbr(-1,-1),lbl(-1,-1),ltr(-1,-1),ltl(-1,-1);
 			for(int y=0;y<contours[x].size();y++){
 				w=contours[x][y];
-				bool ber=0;
-				for(int z=0;z<ALLOW_OFF;z++){
-					Point q=ignore[z];
-					if(q.x==w.x&&q.y==w.y)
-						ber=1;
-				}
-				if(ber)
-					continue;
 				circle(dst,w,2,Scalar(128,128,128),2);
 				int magnitude;
 				double ctlM=(pow(w.x-tl.x,2)+pow(w.y-tl.y,2));
@@ -91,15 +84,23 @@ int main(int argc,char* argv[]){
 				if(ctlM<tlM){
 					tlM=ctlM;
 					xtl=w;
+					itl=y;
+					ixtl=x;
 				}if(ctrM<trM){
 					trM=ctrM;
 					xtr=w;
+					itr=y;
+					ixtr=x;
 				}if(cblM<blM){
 					blM=cblM;
 					xbl=w;
+					ibl=y;
+					ixbl=x;
 				}if(cbrM<brM){
 					brM=cbrM;
 					xbr=w;
+					ibr=y;
+					ixbr=x;
 				}
 			}	
 		}//*/
@@ -109,13 +110,10 @@ int main(int argc,char* argv[]){
 		circle(src,xbr,5,Scalar(255,255,255),5);
 		int widthb=xbr.x-xbl.x;
 		int widtht=xtr.x-xtl.x;
-		if((widthb>widtht)&&((widthb-widtht)>offsret)){
-			ignore[it]=bl;			
-			it++;
-			goto contour;
-		}		
-		for(int i=0;i<ALLOW_OFF;i++)
-			ignore[i]=Point(0,0);
+		int heightl=xbl.y-xtl.y;
+		int heightr=xbr.y-xtr.y;
+		int totalWidth = widthb > widtht ? widtht : widthb;	
+		int totalHeight = heightl > heightr ? heightr : heightl;
 		int m = waitKey(10);
 		if(m == 32){
 			avg += (xbr.x - xbl.x) < 0 ? -(xbr.x - xbl.x) : (xbr.x - xbl.x);
