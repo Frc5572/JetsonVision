@@ -12,6 +12,7 @@
 #include <vector>
 #include <string.h>
 #define ALLOW_OFF 25
+/*http://stackoverflow.com/questions/11925777/opencv-how-to-use-arrays-of-points-for-smoothing-and-sampling-contours*/
 using namespace std;
 using namespace cv;
 CvCapture* cap=cvCaptureFromCAM(CV_CAP_ANY);
