@@ -33,6 +33,12 @@ void removeSmall(Mat* s, int size){
 
 RNG rng(256);
 
+std::string toString(double i){
+	std::stringstream ss;
+	ss << i;
+	return ss.str();
+}
+
 std::string toString(int i){
 	std::stringstream ss;
 	ss << i;
@@ -86,18 +92,19 @@ int main(int argc,char* argv[]){
                                        Point( 3, 3 ) );
 	int itl,itr,ibl,ibr;
 	int ixtl,ixtr,ixbl,ixbr;
+	Mat colorSrc;
 	while(true){
 		IplImage* img=cvQueryFrame(cap);
 		src=cvarrToMat(img);
+		colorSrc = src.clone();
 		if(epilepse)
 			threshold(src,src,0,255,THRESH_BINARY);
 		else
 			threshold(src,src,25,255,THRESH_BINARY);//Its magic, you know
-		inRange(src, Scalar(0,0,0), Scalar(255,0,255), dst);
 		inRange(src, Scalar(0,0,0), Scalar(255,0,255), src);
 		bitwise_not(src,src);
-		bitwise_not(dst,dst);
-		//removeSmall(&dst, 5);
+		dst = src.clone();
+		removeSmall(&dst, 2);
 		int width = src.size().width;
 		int height = src.size().height;
 		int widt=width*width+height*height;
@@ -111,6 +118,8 @@ int main(int argc,char* argv[]){
 		circle(src,tl,5,Scalar(0,0,255),5);
 		circle(src,br,5,Scalar(255,255,255),5);
 		dst = Mat::zeros( dst.size(), CV_8UC3 );
+		int finalwidtht, finalwidthb, finalheightl, finalheightr;
+		Point finalMid;
 		//*
 		for(int x=0;x<contours.size();x++){
 			Scalar color = Scalar( rng.uniform(0, 255), rng.uniform(0,255), rng.uniform(0,255) );
@@ -197,8 +206,11 @@ int main(int argc,char* argv[]){
 					}
 				}
 			}
-			int play = (_br.x-_bl.x)/41*3;
-			int tape = (_br.x-_bl.x)/41*4;
+			line(colorSrc, _br, _bl, Scalar(255,0,255));
+			line(colorSrc, _tr, _tl, Scalar(0,255,255));
+			int _width = (_br.x-_bl.x) + (_tr.x-_tl.x);
+			int play = _width/41*5;
+			int tape = _width/41*2;
 			Point addTL(_tl.x-play, _tl.y-play),addTR(_tr.x+play, _tr.y-play),addBL(_bl.x-play, _bl.y+play),addBR(_br.x+play, _br.y+play);
 			Point subTL (_tl.x+play+tape,_tl.y-play),subTR (_tr.x-play-tape,_tr.y-play),subBL (_bl.x+play+tape,_bl.y-play-tape),subBR (_br.x-play-tape,_br.y-tape-play);
 			bool positive = true;
@@ -206,20 +218,42 @@ int main(int argc,char* argv[]){
 				Point w = contours[x][y];
 				if(!PointInQuad(w,addTL,addTR,addBR,addBL) || PointInQuad(w,subTL,subTR,subBR,subBL)){
 					positive = false;
+					circle(colorSrc, w, 5, Scalar(0,0,255), 5);
+					circle(colorSrc, addTL, 5, Scalar(0,0,255), 5);
+					circle(colorSrc, addTR, 5, Scalar(0,255,255), 5);
+					circle(colorSrc, addBR, 5, Scalar(0,255,0), 5);
+					circle(colorSrc, addBL, 5, Scalar(255,255,0), 5);
+					line(colorSrc, addTL, subTL, Scalar(0,0,255));
+					line(colorSrc, subTL, subBL, Scalar(0,0,255));
+					line(colorSrc, subBL, subBR, Scalar(0,0,255));
+					line(colorSrc, subBR, subTR, Scalar(0,0,255));
+					line(colorSrc, subTR, addTR, Scalar(0,0,255));
+					line(colorSrc, addTR, addBR, Scalar(0,0,255));
+					line(colorSrc, addBR, addBL, Scalar(0,0,255));
+					line(colorSrc, addBL, addTL, Scalar(0,0,255));
 					break;
 				}
 			}
 			if(positive){
-				line(src, addTL, subTL, color);
-			line(src, subTL, subBL, color);
-			line(src, subBL, subBR, color);
-			line(src, subBR, subTR, color);
-			line(src, subTR, addTR, color);
-			line(src, addTR, addBR, color);
-			line(src, addBR, addBL, color);
-			line(src, addBL, addTL, color);
+				line(colorSrc, addTL, subTL, Scalar(255,255,255));
+				line(colorSrc, subTL, subBL, Scalar(255,255,255));
+				line(colorSrc, subBL, subBR, Scalar(255,255,255));
+				line(colorSrc, subBR, subTR, Scalar(255,255,255));
+				line(colorSrc, subTR, addTR, Scalar(255,255,255));
+				line(colorSrc, addTR, addBR, Scalar(255,255,255));
+				line(colorSrc, addBR, addBL, Scalar(255,255,255));
+				line(colorSrc, addBL, addTL, Scalar(255,255,255));
+				finalwidtht = _tr.x - _tl.x;
+				finalwidthb = _width;
+				finalheightl = _bl.x - _tl.x;
+				finalheightr = _br.x - _tr.x;
+				finalMid = middle;
+				break;
 			}
 		}//*/
+		double distance = 21834.83/((finalwidthb+finalwidtht)/2);
+		putText(colorSrc, toString(distance), finalMid, FONT_HERSHEY_SIMPLEX, 1, Scalar(255,255,255));
+		putText(colorSrc, toString((finalwidthb+finalwidtht)/2), Point(finalMid.x,finalMid.y+20), FONT_HERSHEY_SIMPLEX, 1, Scalar(255,255,255));
 		circle(src,xbl,5,Scalar(255,0,0),5);
 		circle(src,xtr,5,Scalar(0,255,0),5);
 		circle(src,xtl,5,Scalar(0,0,255),5);
@@ -240,7 +274,7 @@ int main(int argc,char* argv[]){
 		double fina = avg / amnt;
 		std::cout << fina << std::endl;
 		imshow("Vidia",dst);	
-		imshow("nVidia",src);
+		imshow("nVidia",colorSrc);
 	}
 	destroyAllWindows();
 }
