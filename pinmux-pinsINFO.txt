@@ -1,0 +1,203 @@
+Pinmux settings per pin
+Format: pin (name): mux_owner gpio_owner hog?
+pin 0 (CLK_32K_OUT PA0): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function soc group clk_32k_out_pa0
+pin 1 (UART3_CTS_N PA1): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function gmi group uart3_cts_n_pa1
+pin 2 (DAP2_FS PA2): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function i2s1 group dap2_fs_pa2
+pin 3 (DAP2_SCLK PA3): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function i2s1 group dap2_sclk_pa3
+pin 4 (DAP2_DIN PA4): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function i2s1 group dap2_din_pa4
+pin 5 (DAP2_DOUT PA5): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function i2s1 group dap2_dout_pa5
+pin 6 (SDMMC3_CLK PA6): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function sdmmc3 group sdmmc3_clk_pa6
+pin 7 (SDMMC3_CMD PA7): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function sdmmc3 group sdmmc3_cmd_pa7
+pin 8 (PB0): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function uartd group pb0
+pin 9 (PB1): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function uartd group pb1
+pin 12 (SDMMC3_DAT3 PB4): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function sdmmc3 group sdmmc3_dat3_pb4
+pin 13 (SDMMC3_DAT2 PB5): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function sdmmc3 group sdmmc3_dat2_pb5
+pin 14 (SDMMC3_DAT1 PB6): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function sdmmc3 group sdmmc3_dat1_pb6
+pin 15 (SDMMC3_DAT0 PB7): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function sdmmc3 group sdmmc3_dat0_pb7
+pin 16 (UART3_RTS_N PC0): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function gmi group uart3_rts_n_pc0
+pin 18 (UART2_TXD PC2): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function irda group uart2_txd_pc2
+pin 19 (UART2_RXD PC3): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function irda group uart2_rxd_pc3
+pin 20 (GEN1_I2C_SCL PC4): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function i2c1 group gen1_i2c_scl_pc4
+pin 21 (GEN1_I2C_SDA PC5): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function i2c1 group gen1_i2c_sda_pc5
+pin 23 (PC7): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd1 group pc7
+pin 48 (PG0): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd1 group pg0
+pin 49 (PG1): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd1 group pg1
+pin 50 (PG2): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd1 group pg2
+pin 51 (PG3): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd1 group pg3
+pin 52 (PG4): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd1 group pg4
+pin 53 (PG5): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function spi4 group pg5
+pin 54 (PG6): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function spi4 group pg6
+pin 55 (PG7): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function spi4 group pg7
+pin 56 (PH0): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function gmi group ph0
+pin 57 (PH1): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function pwm1 group ph1
+pin 58 (PH2): 70000868.pinmux Tegra GPIOs:58 (HOG) function gmi group ph2
+pin 59 (PH3): 70000868.pinmux Tegra GPIOs:59 (HOG) function gmi group ph3
+pin 60 (PH4): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd2 group ph4
+pin 61 (PH5): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd2 group ph5
+pin 62 (PH6): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function gmi group ph6
+pin 63 (PH7): 70000868.pinmux Tegra GPIOs:63 (HOG) function gmi group ph7
+pin 64 (PI0): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd1 group pi0
+pin 65 (PI1): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd1 group pi1
+pin 66 (PI2): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd4 group pi2
+pin 67 (PI3): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function spi4 group pi3
+pin 68 (PI4): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function gmi group pi4
+pin 69 (PI5): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd2 group pi5
+pin 70 (PI6): 70000868.pinmux Tegra GPIOs:70 (HOG) function rsvd1 group pi6
+pin 71 (PI7): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd1 group pi7
+pin 72 (PJ0): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd1 group pj0
+pin 74 (PJ2): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd1 group pj2
+pin 77 (UART2_CTS_N PJ5): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function uartb group uart2_cts_n_pj5
+pin 78 (UART2_RTS_N PJ6): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function uartb group uart2_rts_n_pj6
+pin 79 (PJ7): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function uartd group pj7
+pin 80 (PK0): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd1 group pk0
+pin 81 (PK1): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd4 group pk1
+pin 82 (PK2): 70000868.pinmux Tegra GPIOs:82 (HOG) function rsvd1 group pk2
+pin 83 (PK3): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function gmi group pk3
+pin 84 (PK4): 70000868.pinmux Tegra GPIOs:84 (HOG) function rsvd2 group pk4
+pin 85 (SPDIF_OUT PK5): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd2 group spdif_out_pk5
+pin 86 (SPDIF_IN PK6): 70000868.pinmux Tegra GPIOs:86 (HOG) function rsvd2 group spdif_in_pk6
+pin 87 (PK7): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function uartd group pk7
+pin 104 (DAP1_FS PN0): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd4 group dap1_fs_pn0
+pin 105 (DAP1_DIN PN1): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd4 group dap1_din_pn1
+pin 106 (DAP1_DOUT PN2): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function sata group dap1_dout_pn2
+pin 107 (DAP1_SCLK PN3): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd4 group dap1_sclk_pn3
+pin 108 (USB_VBUS_EN0 PN4): 70000868.pinmux Tegra GPIOs:108 (HOG) function usb group usb_vbus_en0_pn4
+pin 109 (USB_VBUS_EN1 PN5): 70000868.pinmux Tegra GPIOs:109 (HOG) function usb group usb_vbus_en1_pn5
+pin 111 (HDMI_INT PN7): 70000868.pinmux Tegra GPIOs:111 (HOG) function rsvd1 group hdmi_int_pn7
+pin 112 (ULPI_DATA7 PO0): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function ulpi group ulpi_data7_po0
+pin 113 (ULPI_DATA0 PO1): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function ulpi group ulpi_data0_po1
+pin 114 (ULPI_DATA1 PO2): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function ulpi group ulpi_data1_po2
+pin 115 (ULPI_DATA2 PO3): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function ulpi group ulpi_data2_po3
+pin 116 (ULPI_DATA3 PO4): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function ulpi group ulpi_data3_po4
+pin 117 (ULPI_DATA4 PO5): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function ulpi group ulpi_data4_po5
+pin 118 (ULPI_DATA5 PO6): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function ulpi group ulpi_data5_po6
+pin 119 (ULPI_DATA6 PO7): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function ulpi group ulpi_data6_po7
+pin 120 (DAP3_FS PP0): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function i2s2 group dap3_fs_pp0
+pin 121 (DAP3_DIN PP1): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function i2s2 group dap3_din_pp1
+pin 122 (DAP3_DOUT PP2): 70000868.pinmux Tegra GPIOs:122 (HOG) function rsvd4 group dap3_dout_pp2
+pin 123 (DAP3_SCLK PP3): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd3 group dap3_sclk_pp3
+pin 124 (DAP4_FS PP4): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd4 group dap4_fs_pp4
+pin 125 (DAP4_DIN PP5): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd3 group dap4_din_pp5
+pin 126 (DAP4_DOUT PP6): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd4 group dap4_dout_pp6
+pin 127 (DAP4_SCLK PP7): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd3 group dap4_sclk_pp7
+pin 128 (KB_COL0 PQ0): 70000868.pinmux Tegra GPIOs:128 (HOG) function rsvd2 group kb_col0_pq0
+pin 129 (KB_COL1 PQ1): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd2 group kb_col1_pq1
+pin 130 (KB_COL2 PQ2): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd2 group kb_col2_pq2
+pin 131 (KB_COL3 PQ3): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function kbc group kb_col3_pq3
+pin 132 (KB_COL4 PQ4): 70000868.pinmux Tegra GPIOs:132 (HOG) function sdmmc3 group kb_col4_pq4
+pin 133 (KB_COL5 PQ5): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd2 group kb_col5_pq5
+pin 134 (KB_COL6 PQ6): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd2 group kb_col6_pq6
+pin 135 (KB_COL7 PQ7): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd2 group kb_col7_pq7
+pin 136 (KB_ROW0 PR0): 70000868.pinmux Tegra GPIOs:136 (HOG) function rsvd2 group kb_row0_pr0
+pin 137 (KB_ROW1 PR1): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd2 group kb_row1_pr1
+pin 138 (KB_ROW2 PR2): 70000868.pinmux Tegra GPIOs:138 (HOG) function rsvd2 group kb_row2_pr2
+pin 139 (KB_ROW3 PR3): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function kbc group kb_row3_pr3
+pin 140 (KB_ROW4 PR4): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd3 group kb_row4_pr4
+pin 141 (KB_ROW5 PR5): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd3 group kb_row5_pr5
+pin 142 (KB_ROW6 PR6): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function displaya_alt group kb_row6_pr6
+pin 143 (KB_ROW7 PR7): 70000868.pinmux Tegra GPIOs:143 (HOG) function rsvd2 group kb_row7_pr7
+pin 144 (KB_ROW8 PS0): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd2 group kb_row8_ps0
+pin 145 (KB_ROW9 PS1): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function uarta group kb_row9_ps1
+pin 146 (KB_ROW10 PS2): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function uarta group kb_row10_ps2
+pin 147 (KB_ROW10 PS3): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd2 group kb_row11_ps3
+pin 148 (KB_ROW10 PS4): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd2 group kb_row12_ps4
+pin 149 (KB_ROW10 PS5): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd2 group kb_row13_ps5
+pin 150 (KB_ROW10 PS6): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd2 group kb_row14_ps6
+pin 151 (KB_ROW10 PS7): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd3 group kb_row15_ps7
+pin 152 (KB_ROW10 PT0): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd2 group kb_row16_pt0
+pin 153 (KB_ROW10 PT1): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd2 group kb_row17_pt1
+pin 157 (GEN2_I2C_SCL PT5): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function i2c2 group gen2_i2c_scl_pt5
+pin 158 (GEN2_I2C_SDA PT6): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function i2c2 group gen2_i2c_sda_pt6
+pin 159 (SDMMC4_CMD PT7): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function sdmmc4 group sdmmc4_cmd_pt7
+pin 160 (PU0): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd4 group pu0
+pin 161 (PU1): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd1 group pu1
+pin 162 (PU2): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd1 group pu2
+pin 163 (PU3): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function gmi group pu3
+pin 164 (PU4): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function gmi group pu4
+pin 165 (PU5): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function gmi group pu5
+pin 166 (PU6): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd3 group pu6
+pin 168 (PV0): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd1 group pv0
+pin 169 (PV1): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd1 group pv1
+pin 170 (SDMMC3_CD_N PV2): 70000868.pinmux Tegra GPIOs:170 (HOG) function sdmmc3 group sdmmc3_cd_n_pv2
+pin 171 (SDMMC1_WP_N PV3): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function sdmmc1 group sdmmc1_wp_n_pv3
+pin 172 (DDC_SCL PV4): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function i2c4 group ddc_scl_pv4
+pin 173 (DDC_SDA PV5): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function i2c4 group ddc_sda_pv5
+pin 178 (GPIO_W2_AUD PW2): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd2 group gpio_w2_aud_pw2
+pin 179 (GPIO_W3_AUD PW3): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function spi6 group gpio_w3_aud_pw3
+pin 180 (DAP_MCLK1 PW4): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function extperiph1 group dap_mclk1_pw4
+pin 181 (CLK2_OUT PW5): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function extperiph2 group clk2_out_pw5
+pin 182 (UART3_TXD PW6): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd2 group uart3_txd_pw6
+pin 183 (UART3_RXD PW7): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd2 group uart3_rxd_pw7
+pin 184 (DVFS_PWM PX0): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function cldvfs group dvfs_pwm_px0
+pin 185 (GPIO_X1_AUD PX1): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd2 group gpio_x1_aud_px1
+pin 186 (DVFS_CLK PX2): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function cldvfs group dvfs_clk_px2
+pin 187 (GPIO_X3_AUD PX3): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd4 group gpio_x3_aud_px3
+pin 188 (GPIO_X4_AUD PX4): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function gmi group gpio_x4_aud_px4
+pin 189 (GPIO_X5_AUD PX5): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd4 group gpio_x5_aud_px5
+pin 190 (GPIO_X6_AUD PX6): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function gmi group gpio_x6_aud_px6
+pin 191 (GPIO_X7_AUD PX7): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd1 group gpio_x7_aud_px7
+pin 192 (ULPI_CLK PY0): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function spi1 group ulpi_clk_py0
+pin 193 (ULPI_DIR PY1): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function spi1 group ulpi_dir_py1
+pin 194 (ULPI_NXT PY2): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function spi1 group ulpi_nxt_py2
+pin 195 (ULPI_STP PY3): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function spi1 group ulpi_stp_py3
+pin 196 (SDMMC1_DAT3 PY4): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function sdmmc1 group sdmmc1_dat3_py4
+pin 197 (SDMMC1_DAT2 PY5): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function sdmmc1 group sdmmc1_dat2_py5
+pin 198 (SDMMC1_DAT1 PY6): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function sdmmc1 group sdmmc1_dat1_py6
+pin 199 (SDMMC1_DAT0 PY7): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd2 group sdmmc1_dat0_py7
+pin 200 (SDMMC1_CLK PZ0): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd3 group sdmmc1_clk_pz0
+pin 201 (SDMMC1_CMD PZ1): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function sdmmc1 group sdmmc1_cmd_pz1
+pin 206 (PWR_I2C_SCL PZ6): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function i2cpwr group pwr_i2c_scl_pz6
+pin 207 (PWR_I2C_SDA PZ7): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function i2cpwr group pwr_i2c_sda_pz7
+pin 208 (SDMMC4_DAT0 PAA0): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function sdmmc4 group sdmmc4_dat0_paa0
+pin 209 (SDMMC4_DAT1 PAA1): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function sdmmc4 group sdmmc4_dat1_paa1
+pin 210 (SDMMC4_DAT2 PAA2): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function sdmmc4 group sdmmc4_dat2_paa2
+pin 211 (SDMMC4_DAT3 PAA3): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function sdmmc4 group sdmmc4_dat3_paa3
+pin 212 (SDMMC4_DAT4 PAA4): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function sdmmc4 group sdmmc4_dat4_paa4
+pin 213 (SDMMC4_DAT5 PAA5): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function sdmmc4 group sdmmc4_dat5_paa5
+pin 214 (SDMMC4_DAT6 PAA6): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function sdmmc4 group sdmmc4_dat6_paa6
+pin 215 (SDMMC4_DAT7 PAA7): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function sdmmc4 group sdmmc4_dat7_paa7
+pin 216 (PBB0): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function vimclk2_alt group pbb0
+pin 217 (CAM_I2C_SCL PBB1): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function i2c3 group cam_i2c_scl_pbb1
+pin 218 (CAM_I2C_SDA PBB2): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function i2c3 group cam_i2c_sda_pbb2
+pin 219 (PBB3): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function vgp3 group pbb3
+pin 220 (PBB4): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function vgp4 group pbb4
+pin 221 (PBB5): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd3 group pbb5
+pin 222 (PBB6): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd2 group pbb6
+pin 223 (PBB7): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd2 group pbb7
+pin 224 (CAM_MCLK PCC0): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function vi_alt3 group cam_mclk_pcc0
+pin 225 (PCC1): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd2 group pcc1
+pin 226 (PCC2): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd2 group pcc2
+pin 228 (SDMMC4_CLK PCC4): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function sdmmc4 group sdmmc4_clk_pcc4
+pin 229 (CLK2_REQ PCC5): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd2 group clk2_req_pcc5
+pin 233 (PEX_L0_RST_N PDD1): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function pe0 group pex_l0_rst_n_pdd1
+pin 234 (PEX_L0_CLKREQ_N PDD2): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function pe0 group pex_l0_clkreq_n_pdd2
+pin 235 (PEX_WAKE_N PDD3): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function pe group pex_wake_n_pdd3
+pin 237 (PEX_L1_RST_N PDD5): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function pe1 group pex_l1_rst_n_pdd5
+pin 238 (PEX_L1_CLKREQ_N PDD6): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function pe1 group pex_l1_clkreq_n_pdd6
+pin 240 (CLK3_OUT PEE0): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function extperiph3 group clk3_out_pee0
+pin 241 (CLK3_REQ PEE1): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd2 group clk3_req_pee1
+pin 242 (DAP_MCLK1_REQ PEE2): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function sata group dap_mclk1_req_pee2
+pin 243 (HDMI_CEC PEE3): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function cec group hdmi_cec_pee3
+pin 244 (SDMMC3_CLK_LB_OUT PEE4): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function sdmmc3 group sdmmc3_clk_lb_out_pee4
+pin 245 (SDMMC3_CLK_LB_IN PEE5): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function sdmmc3 group sdmmc3_clk_lb_in_pee5
+pin 251 (CORE_PWR_REQ): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function pwron group core_pwr_req
+pin 252 (CPU_PWR_REQ): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function cpu group cpu_pwr_req
+pin 256 (OWR): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd2 group owr
+pin 253 (PWR_INT_N): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function pmi group pwr_int_n
+pin 255 (RESET_OUT_N): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function reset_out_n group reset_out_n
+pin 248 (DP_HPD PFF0): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function dp group dp_hpd_pff0
+pin 249 (USB_VBUS_EN2 PFF1): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd2 group usb_vbus_en2_pff1
+pin 250 (PFF2): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rsvd2 group pff2
+pin 257 (CLK_32K_IN): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function clk group clk_32k_in
+pin 254 (GMI_CLK_LB): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 258 (JTAG_RTCK): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function rtck group jtag_rtck
+pin 259 (DSI_B_CLK_P): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function dsi_b group mipi_pad_ctrl_dsi_b
+pin 260 (DSI_B_CLK_N): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function dsi_b group mipi_pad_ctrl_dsi_b
+pin 261 (DSI_B_D0_P): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function dsi_b group mipi_pad_ctrl_dsi_b
+pin 262 (DSI_B_D0_N): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function dsi_b group mipi_pad_ctrl_dsi_b
+pin 263 (DSI_B_D1_P): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function dsi_b group mipi_pad_ctrl_dsi_b
+pin 264 (DSI_B_D1_N): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function dsi_b group mipi_pad_ctrl_dsi_b
+pin 265 (DSI_B_D2_P): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function dsi_b group mipi_pad_ctrl_dsi_b
+pin 266 (DSI_B_D2_N): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function dsi_b group mipi_pad_ctrl_dsi_b
+pin 267 (DSI_B_D3_P): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function dsi_b group mipi_pad_ctrl_dsi_b
+pin 268 (DSI_B_D3_N): 70000868.pinmux (GPIO UNCLAIMED) (HOG) function dsi_b group mipi_pad_ctrl_dsi_b
