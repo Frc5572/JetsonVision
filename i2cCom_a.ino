@@ -1,19 +1,19 @@
-#include <Wire.h>
+
 String incomingByte;   // for incoming serial data
 int led = 11;
 int bright;
 int i2cInternalAddress = 0;
 int fromRoboRio = 0;
-String data="0:0:0:0:0";
-/*
+String dat="0:0:0:0:0";
+
 int distance=0;
 int y=0;
 int x=0;
 int yaw=0;
 int pitch=0;
-*/
 
-/*
+
+
 int toInt(String recv){
   int tnum=0;
   for(int i=0;i<recv.length();i++){
@@ -58,7 +58,7 @@ int toInt(String recv){
   if(tnum>=99)
     tnum++;
   return tnum;
-}*/
+}
 String readData(){
   String str; 
   if(Serial.available() > 0){
@@ -70,8 +70,8 @@ void readAndTrans(){
   //distance:x
   //yaw:pitch:x:y:distance
   if(Serial.available()>0){
-    data=readData();
-   /* if(dat.indexOf(':')<0){
+    dat=readData();
+    if(dat.indexOf(':')<0){
       distance=toInt(dat);
     }else{
       //distance=toInt(dat.substring(dat.indexOf(':')));
@@ -106,21 +106,26 @@ void readAndTrans(){
         }
       }
       distance=toInt(var);
-    }*/
+    }
   }
 }
 void setup()
 {
   Serial.begin(9600);     // opens serial port, sets data rate to 9600 bps
-  Wire.begin(55);               // join i2c bus with address #55.
-  Wire.onReceive(receiveEvent);
-  Wire.onRequest(requestEvent);
+  pinMode(A0,OUTPUT);
+  pinMode(A1,OUTPUT);
+  pinMode(A2,OUTPUT);
+  pinMode(A3,OUTPUT);
 }
 void loop(){
 
   // read the incoming byte:
-  //readAndTrans();
-  /*
+  readAndTrans();
+  analogWrite(A0,yaw);
+  analogWrite(A1,pitch);
+  analogWrite(A2,x);
+  analogWrite(A3,y);
+  analogWrite(A4,distance);
   Serial.print("distance:\t");
   Serial.println(distance);
   Serial.print("y:\t");
@@ -130,57 +135,9 @@ void loop(){
   Serial.print("yaw:\t");
   Serial.println(yaw);
   Serial.print("pitch:\t");
-  Serial.println(pitch);*/
+  Serial.println(pitch);
   //incomingByte.trim();
-  while(Wire.available()){
-    Serial.println("ran");
-    Wire.write(data.length());
-  }
-}
-
-void receiveEvent(int howMany) {
-Serial.print("i2caddrv");
-  i2cInternalAddress = Wire.read();
-  Serial.println(i2cInternalAddress);
-  while ( Wire.available()) {  
-    fromRoboRio = Wire.read();
-  }
-    if (i2cInternalAddress==64) {
-      Wire.write(64);
-      Wire.write(data.c_str());
-    Serial.println("recv64");
-  }
-  if (i2cInternalAddress==56) {
-    Wire.write(0);
-    Wire.write(5);
-    Wire.write(6);
-    Wire.write(data.length());
-    Serial.println("recv56");
-  }
-    if (i2cInternalAddress==55) {
-    Wire.write(data.length());
-    Serial.println("req55");
-  }
-}
-
-
-void requestEvent() {
-  Serial.print("i2caddr");
-  Serial.println(i2cInternalAddress);
-  if (i2cInternalAddress==64) {
-    Wire.write(data.c_str());
-    Serial.println("req64");
-  }
-  if (i2cInternalAddress==56) {
-    Wire.write(data.length());
-    Serial.println("req56");
-  }
-  if (i2cInternalAddress==55) {
-    Wire.write(data.length());
-    Wire.write(1);
-    Wire.write(2);
-    Serial.println("req55");
-  }
+  
 }
 
 
