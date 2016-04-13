@@ -295,6 +295,10 @@ bool PointInQuad (Point pt, Point v1, Point v2, Point v3, Point v4)
     return PointInTriangle(pt,v1,v2,v3) || PointInTriangle(pt,v1,v3,v4);
 }
 
+int max(int a, int b){
+	return a > b ? a : b;
+}
+
 void writeData(int &fd, string s){
 	write(fd, s.c_str(), s.length());
 	fcntl(fd,F_SETFL,FNDELAY);
@@ -463,12 +467,12 @@ int main(int argc,char* argv[]){
 			int _width = (_br.x-_bl.x) + (_tr.x-_tl.x);
 			int play = _width/41*5;
 			int tape = _width/41*2;
-			Point addTL(_tl.x-play, _tl.y-play),addTR(_tr.x+play, _tr.y-play),addBL(_bl.x-play, _bl.y+play),addBR(_br.x+play, _br.y+play);
+			Point addTL(max(0,_tl.x-play), _tl.y-play),addTR(_tr.x+play, _tr.y-play),addBL(max(0,_bl.x-play), _bl.y+play),addBR(_br.x+play, _br.y+play);
 			Point subTL (_tl.x+play+tape,_tl.y-play),subTR (_tr.x-play-tape,_tr.y-play),subBL (_bl.x+play+tape,_bl.y-play-tape),subBR (_br.x-play-tape,_br.y-tape-play);
-			positive = addTL.x > 0 && addBL.x > 0 && addBR.x > 0 && addTR.x > 0;
-			//bool positive=true;
+			bool positive=true;
 			for(int y=0;y<contours[x].size();y++){
 				Point w = contours[x][y];
+				
 				if(!PointInQuad(w,addTL,addTR,addBR,addBL) || PointInQuad(w,subTL,subTR,subBR,subBL)){
 					positive = false;
 					#ifdef DEBUG					
@@ -523,8 +527,9 @@ break;
 				//snprintf(buf,sizeof(buf),"echo '%d:%d:%d:%d:%d' > /dev/ttyTHS1",(int)finalMid.x,width,0,1,(int)(distance));
 				//std::system(buf); //Writing to the file
 				char hi[25];
-				snprintf(hi, sizeof(hi),"%d:%d:%d:%d:%d\n",(int)finalMid.x,width,0,1,(int)(distance));				
+				snprintf(hi, sizeof(hi),"%d:%d:%d:%d:%d\n",(int)finalMid.x,width,dist(_tl,_bl),(dist(_tr,_br),(int)(distance));				
 				writeData(fd, string(hi));
+				std::cout << "found" << std::endl;
 				}
 		#ifdef DEBUG
 		putText(colorSrc, toString((double)distance), finalMid, FONT_HERSHEY_SIMPLEX, 1, Scalar(255,255,255));
@@ -549,7 +554,6 @@ break;
 			break;
 		}
 		double fina = avg / amnt;
-		std::cout << fina << std::endl;
 		imshow("Vidia",dst);	
 		imshow("nVidia",colorSrc);
 		#endif
