@@ -1,0 +1,32 @@
+#!/bin/sh -e
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
+
+touch /tmp/jetpack.log
+echo "starting script to send ip to host" >> /tmp/jetpack.log
+/home/ubuntu/report_ip_to_host.sh &
+echo "started script to send ip to host" >> /tmp/jetpack.log
+#
+#
+if [ ! -a /media/ubuntu/SDCARD ] 
+	then
+		mkdir /media/ubuntu/SDCARD/
+fi
+mount -t vfat /dev/mmcblk1p1 /media/ubuntu/SDCARD/
+sh /media/ubuntu/SDCARD/setup.sh
+g++ /media/ubuntu/SDCARD/finalVision.cpp -L/usr/local/cuda-7.0/targets/armv7-linux-gnueabihf/lib -lX11 -lopencv_calib3d -lopencv_contrib -lopencv_core -lopencv_features2d -lopencv_flann -lopencv_gpu -lopencv_highgui -lopencv_imgproc -lopencv_legacy -lopencv_ml -lopencv_objdetect -lopencv_photo -lopencv_stitching -lopencv_superres -lopencv_ts -lopencv_video -lopencv_videostab -lopencv_detection_based_tracker -lopencv_esm_panorama -lopencv_facedetect -lopencv_imuvstab -lopencv_tegra -lopencv_vstab -lcufft -lnpps -lnppi -lnppc -lcudart -ltbb -lrt -lpthread -lm -ldl -std=c++11 -o /home/ubuntu/Desktop/thresh
+touch /media/ubuntu/SDCARD/output
+/home/ubuntu/Desktop/thresh > /media/ubuntu/SDCARD/output
+umount -t vfat /dev/mmcblk1p1 /media/ubuntu/SDCARD/
+#stty 115200 -parenb -parodd cs8 hupcl -cstopb cread clocal -crtscts -ignbrk -brkint -ignpar -parmrk -inpck -istrip -inlcr -igncr icrnl ixon -ixoff -iuclc -ixany -imaxbel -iutf8 opost -olcuc -ocrnl onlcr -onocr -onlret -ofill -ofdel nl0 cr0 tab0 bs0 vt0 ff0 isig icanon iexten echo echoe echok -echonl -noflsh -xcase -tostop -echoprt echoctl echoke -F /dev/ttyTHS1
+
+exit 0
