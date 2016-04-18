@@ -334,7 +334,7 @@ int main(int argc,char* argv[]){
 		//else
 		//	threshold(src,src,50,255,THRESH_BINARY);//Its magic, you know
 		cvtColor(src,src,CV_BGR2HSV);
-		inRange(src, Scalar(101,75.61,80.39), Scalar(141,75.61,80.39), src);
+		inRange(src, Scalar(101,71,80.39), Scalar(141,75.61,100), src);
 		#ifdef DEBUG
 		imshow("Filtered View",src);
 		#endif
