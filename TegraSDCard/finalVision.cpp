@@ -329,12 +329,16 @@ int main(int argc,char* argv[]){
 		IplImage* img=cvQueryFrame(cap);
 		src=cvarrToMat(img);
 		colorSrc = src.clone();
-		if(epilepse)
-			threshold(src,src,0,255,THRESH_BINARY);
-		else
-			threshold(src,src,50,255,THRESH_BINARY);//Its magic, you know
-		inRange(src, Scalar(0,0,0), Scalar(255,0,255), src);
-		bitwise_not(src,src);
+		//if(epilepse)
+		//	threshold(src,src,0,255,THRESH_BINARY);
+		//else
+		//	threshold(src,src,50,255,THRESH_BINARY);//Its magic, you know
+		cvtColor(src,src,CV_BGR2HSV);
+		inRange(src, Scalar(101,75.61,80.39), Scalar(141,75.61,80.39), src);
+		#ifdef DEBUG
+		imshow("Filtered View",src);
+		#endif
+		//bitwise_not(src,src);
 		dst = src.clone();
 		removeSmall(&dst, 2);
 		int width = src.size().width;
