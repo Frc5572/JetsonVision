@@ -529,7 +529,7 @@ break;
 				snprintf(hi, sizeof(hi),"S%d:%d:%dE",(int)finalMid.x,width,(int)(finalMid.y));
 				//std::cout << "found" << std::endl;
 				}else{
-			snprintf(hi, sizeof(hi),"d\n", 0);
+			snprintf(hi, sizeof(hi),"%d\n", 0);
 		}
 		writeData(fd, string(hi));
 		#endif
