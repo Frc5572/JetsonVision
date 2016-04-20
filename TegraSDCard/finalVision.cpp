@@ -507,7 +507,7 @@ int main(int argc,char* argv[]){
 				finalheightl = _bl.x - _tl.x;
 				finalheightr = _br.x - _tr.x;
 				finalMid = middle;
-				distance = 21834.83/((finalwidthb+finalwidtht)/2);
+				distance = sqrt(pow(((21834.83/((finalwidthb+finalwidtht)/2)+135)),2)-7921)-144;
 				
 break;
 			}
@@ -526,16 +526,16 @@ break;
 				//snprintf(buf,sizeof(buf),"echo '%d:%d:%d:%d:%d' > /dev/ttyTHS1",(int)finalMid.x,width,0,1,(int)(distance));
 				//std::system(buf); //Writing to the file
 
-				snprintf(hi, sizeof(hi),"%d:%d:%d:%d\n",1,(int)finalMid.x,width,(int)(distance));
+				snprintf(hi, sizeof(hi),"S%d:%d:%dE",(int)finalMid.x,width,(int)(finalMid.y));
 				//std::cout << "found" << std::endl;
 				}else{
-			snprintf(hi, sizeof(hi),"%d\n", 0);
+			snprintf(hi, sizeof(hi),"d\n", 0);
 		}
 		writeData(fd, string(hi));
 		#endif
 		#ifdef DEBUG
 		if(positive)
-			putText(colorSrc, toString((double)distance), finalMid, FONT_HERSHEY_SIMPLEX, 1, Scalar(255,255,255));
+			putText(colorSrc, toString((double)(pow(-.0158,2)+(4.968*finalMid.y)-90.450)), finalMid, FONT_HERSHEY_SIMPLEX, 1, Scalar(255,255,255));
 		if(positive)
 			putText(colorSrc, toString((double)(finalMid.x)), Point(finalMid.x,finalMid.y+20), FONT_HERSHEY_SIMPLEX, 1, Scalar(255,255,255));
 		circle(src,xbl,5,Scalar(255,0,0),5);
