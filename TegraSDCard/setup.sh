@@ -23,6 +23,7 @@
 v4l2-ctl --set-ctrl=exposure_auto=1,contrast=10,saturation=200,white_balance_temperature_auto=0,white_balance_temperature=6200,sharpness=50,backlight_compensation=0,exposure_absolute=9
 v4l2-ctl --set-fmt-video=pixelformat=1
 #Enables All Cores TAKES more power
+
 echo 0 > /sys/devices/system/cpu/cpuquiet/tegra_cpuquiet/enable
 echo 1 > /sys/devices/system/cpu/cpu0/online
 echo 1 > /sys/devices/system/cpu/cpu1/online
